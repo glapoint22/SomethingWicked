@@ -1,0 +1,85 @@
+@import 'utility';
+
+.nav-bar{
+    height: 78px;
+    width: 100%;
+    @include gradient($color3, $color2);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid $color1;
+}
+.nav-grp{
+    width: 75%;
+    height: inherit;
+    text-align: right;
+}
+.nav{
+    padding: 20px;
+    text-decoration: none;
+    color: $color1;
+    line-height: 80px;
+    font-size: 20px;
+    display: inline;
+}
+.nav:hover{
+    color: $hover;
+    cursor: pointer;
+}
+.logo {
+    position: absolute;
+    top: 69%;
+    margin-top: -50px;
+    margin-left: 10vw;
+}
+.mobile-menu {
+    background: #f19c07;
+    height: 46px;
+    width: 46px;
+    position: relative;
+    top: -61px;
+    float: right;
+    margin-right: 15px;
+    font-size: 35px;
+    color: $color2;
+    visibility: hidden;
+    text-align: center;
+    line-height: 48px;
+}
+.mobile-menu-dropdown{
+    width: 100%; 
+    @include gradient($color3, $color2);
+    position: fixed; 
+    z-index: 600; 
+    font-size: 20px; 
+    overflow: hidden; 
+    color: $color1;
+    border: 2px solid $color1; 
+    border-top: none;
+    box-sizing: border-box;
+    padding-top: 4px;
+    top: 80px;
+}
+.mobile-nav{
+    padding: 0 10px 4px 10px;
+    padding-top: inherit;
+}
+.mobile-nav:hover{
+    color: $hover;
+    cursor: pointer;
+}
+@media screen and (max-width: 1200px) {
+    .nav{
+        visibility: hidden;
+    }
+    .mobile-menu{
+        visibility: visible;
+    }
+}
+@media screen and (max-width: 360px) {
+    .logo {
+        margin-left: 5vw;
+        height: 15vw;
+        top: 80%;
+    }
+}

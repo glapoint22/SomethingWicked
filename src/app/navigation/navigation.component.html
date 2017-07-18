@@ -1,0 +1,21 @@
+<div class="nav-bar">
+  <img class="logo" src="assets/images/SomethingWickedLogo.png" />
+  <div class="nav-grp">
+    <div class="nav">TOUR</div>
+    <div class="nav">MUSIC</div>
+    <div class="nav">VIDEOS</div>
+    <div class="nav">PHOTOS</div>
+    <div class="nav">BIOS</div>
+  </div>
+  <div class="mobile-menu" (click)="menuClick()">
+    <i class="fa fa-align-justify" aria-hidden="true"></i>
+  </div>
+</div>
+
+<div class="mobile-menu-dropdown" [@menuState]="state">
+  <div class="mobile-nav">TOUR</div>
+  <div class="mobile-nav">MUSIC</div>
+  <div class="mobile-nav">VIDEOS</div>
+  <div class="mobile-nav">PHOTOS</div>
+  <div class="mobile-nav">BIOS</div>
+</div>
