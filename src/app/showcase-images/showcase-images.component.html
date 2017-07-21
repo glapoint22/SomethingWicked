@@ -1,0 +1,20 @@
+<div class="showcase-img-container" set-height>
+  <!-- <div class="loading" ng-show="showcaseLoad">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  </div> -->
+
+  <!-- <img ng-repeat="image in images" class="showcase-img ng-hide" ng-src="{{image}}" ng-show="currentImage === $index" check-showcase-loading/> -->
+
+  <img *ngFor="let image of showcaseImages" 
+  class="showcase-img" src="/assets/images/showcaseImages/{{image.name}}" [@imageState]="image.state"/>
+
+  <!--Left arrow-->
+  <div class="img-arrow-circle" style="left: 3%" ng-click="setImage(-1)">
+    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+  </div>
+
+  <!--Right Arrow-->
+  <div class="img-arrow-circle" style="right: 3%" ng-click="setImage(1)">
+    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+  </div>
+</div>

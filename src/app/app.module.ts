@@ -9,12 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ShowcaseImagesComponent } from './showcase-images/showcase-images.component';
+
+//Services
+import { DataService } from "./data.service";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    ShowcaseImagesComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     BrowserAnimationsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
