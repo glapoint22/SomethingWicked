@@ -33,5 +33,5 @@ export class NavigationComponent {
   menuClick(): void {
         this.isVisible = !this.isVisible;
         this.state = this.isVisible ? this.state = 'active' : this.state = 'inactive';
-    }
+  }
 }

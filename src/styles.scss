@@ -78,10 +78,7 @@ iframe{
     display: flex; 
     align-items: center; 
     justify-content: center;
-    @include transition-timing(0.2s);
-    &.ng-hide{
-        opacity: 0;
-    }
+    
 }
 @media screen and (max-width: 767px) {
     th{

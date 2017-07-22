@@ -1,3 +1,4 @@
+//Imports
 import { Component, OnInit } from '@angular/core';
 import { DataService } from "../data.service";
 import { ShowcaseImage } from "../classes/showcaseImage";
@@ -8,13 +9,15 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { HostListener } from '@angular/core';
 
+//Decorator
 @Component({
   selector: 'app-showcase-images',
   templateUrl: './showcase-images.component.html',
   styleUrls: ['./showcase-images.component.scss'],
   animations: [
-    trigger('imageState', [
+    trigger('visibleState', [
       state('hidden', style({
         opacity: 0,
       })),
@@ -25,44 +28,116 @@ import {
     ])
   ]
 })
+
+//Class
 export class ShowcaseImagesComponent implements OnInit {
-  public showcaseImages: ShowcaseImage[];
+  public images: ShowcaseImage[];
+  public showcaseImages: ShowcaseImage[] = [];
   public currentImageIndex: number = 0;
   public currentTimer: number = 0;
+  public height: number;
+  public loadState = 'visible';
+  public visibility = "hidden";
 
   constructor(private dataService: DataService) { }
 
-  //----------------------------------------------------------------ngOnInit-------------------------------------------------------
+  //-----------------------------------------------------------------------------------------------------------ngOnInit------------------------------------------------------------------------------------------------
   ngOnInit() {
+    //Set the image height
+    this.setHeight();
+
     //Get the showcase images
     this.dataService.data
       .subscribe((response) =>{
         //Assign the images
-        this.showcaseImages = <ShowcaseImage[]>response.showcaseImages;
-
-        //Set the visible and hidden states
-        for(let i = 0; i < this.showcaseImages.length; i++){
-          if(i ==0){
-            this.showcaseImages[i].state = 'visible';
-          }else{
-            this.showcaseImages[i].state = 'hidden';
-          }
+        this.images = <ShowcaseImage[]>response.showcaseImages;
+        
+        //Set the states to hidden
+        for(let i = 0; i < this.images.length; i++){
+          this.images[i].state = 'hidden';
         }
 
-        //Kick off the slide
-        this.startSlide();
+        //Push the first image into the array
+        this.showcaseImages.push(this.images[0]);
       });
   }
-  //----------------------------------------------------------------startSlide-------------------------------------------------------
-  startSlide(): void{
+  //-----------------------------------------------------------------------------------------------------------startTimer----------------------------------------------------------------------------------------------
+  startTimer(direction: number): void{
     this.currentTimer = window.setInterval(() => {
-        //Hide the current image and then increment the next image
-        this.showcaseImages[this.currentImageIndex].state = 'hidden';
-        this.currentImageIndex++;
-        this.currentImageIndex = this.currentImageIndex % this.showcaseImages.length;
-
-        //Show the current image
-        this.showcaseImages[this.currentImageIndex].state = 'visible';
+      this.showNextImg(direction);
     }, 10000);
+  }
+  //-----------------------------------------------------------------------------------------------------------showNextImg----------------------------------------------------------------------------------------------
+  showNextImg(direction: number): void{
+    //Hide the current image
+    this.showcaseImages[this.currentImageIndex].state = 'hidden';
+
+    //Set the next image index based on the direction
+    this.currentImageIndex += direction;
+    if(this.currentImageIndex < 0){
+      this.currentImageIndex = this.showcaseImages.length - 1;
+    }else{
+      this.currentImageIndex = this.currentImageIndex % this.showcaseImages.length;
+    }
+
+    //Show the image
+    this.showcaseImages[this.currentImageIndex].state = 'visible';
+  }
+
+  //-----------------------------------------------------------------------------------------------------------onArrowClick----------------------------------------------------------------------------------------------
+  onArrowClick(direction: number): void{
+    //Stop the timer
+    window.clearInterval(this.currentTimer);
+
+    //Go to the next image and restart the timer
+    this.showNextImg(direction);
+    this.startTimer(direction);
+  }
+
+  //-----------------------------------------------------------------------------------------------------------setHeight----------------------------------------------------------------------------------------------
+  setHeight(): void{
+    let navBarHeight = 80, maxWindowWidth = 1920;
+
+    //compute the height
+    if (window.innerWidth > 1800 && window.innerHeight <= 1080) {
+        this.height = (window.innerHeight - navBarHeight) / maxWindowWidth * 100;
+    } else {
+        this.height = 56.25;
+    }
+  }
+
+  //-----------------------------------------------------------------------------------------------------------onResize----------------------------------------------------------------------------------------------
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.setHeight();
+  }
+
+  //-----------------------------------------------------------------------------------------------------------onImageLoad----------------------------------------------------------------------------------------------
+  onImageLoad(): void{
+    if(this.showcaseImages.length == 1){
+      this.showcaseImages[0].state = 'visible';
+      this.loadState = 'hidden';
+
+      //Start the timer for the slide
+      this.startTimer(1);
+    }
+
+    if(this.images.length > this.showcaseImages.length){
+      this.showcaseImages.push(this.images[this.showcaseImages.length]);
+    }
+  }
+
+  //---------------------------------------------------------------------------------------------------------onAnimationStart----------------------------------------------------------------------------------------------
+  onAnimationStart(event): void{
+    if(event.fromState == 'void'){
+      this.visibility = 'visible';
+    }
+  }
+
+  //---------------------------------------------------------------------------------------------------------onAnimationDone----------------------------------------------------------------------------------------------
+  onAnimationDone(event): void{
+    if(event.fromState == 'visible'){
+      this.visibility = 'hidden';
+    }
   }
 }

@@ -64,10 +64,10 @@
     padding: 0 10px 4px 10px;
     padding-top: inherit;
 }
-.mobile-nav:hover{
-    color: $hover;
-    cursor: pointer;
-}
+// .mobile-nav:hover{
+//     color: $hover;
+//     cursor: pointer;
+// }
 @media screen and (max-width: 1200px) {
     .nav{
         visibility: hidden;
