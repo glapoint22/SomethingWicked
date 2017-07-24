@@ -10,9 +10,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowcaseImagesComponent } from './showcase-images/showcase-images.component';
+import { LoadComponent } from './load/load.component';
 
 //Services
 import { DataService } from "./data.service";
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { DataService } from "./data.service";
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    ShowcaseImagesComponent
+    ShowcaseImagesComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,21 @@
 <div class="showcase-img-container" [style.height.vw]="height">
-  <!-- Loading -->
-  <div class="loading" [@visibleState]="loadState" (@visibleState.start)="onAnimationStart($event)" (@visibleState.done)="onAnimationDone($event)"  [style.visibility]="visibility" >
-    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-  </div> 
+  
+  <!-- Show the loading mask -->
+  <load [isLoaded]="isLoaded"></load>
 
   <!-- Showcase Images -->
-  <img *ngFor="let image of showcaseImages" class="showcase-img" src="/assets/images/showcaseImages/{{image.name}}" [@visibleState]="image.state" (load)="onImageLoad()"/>
+  <img *ngFor="let image of showcaseImages" class="showcase-img" src="/assets/images/showcaseImages/{{image.name}}" [@fadeState]="image.fadeState" (load)="onImageLoad()"/>
 
-  <!--Left arrow-->
-  <div class="img-arrow-circle" style="left: 3%" (click)="onArrowClick(-1)">
-    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-  </div>
+  <!-- Arrows -->
+  <div [@fadeState]="arrowsFadeState" [style.display]="arrowsDisplay">
+    <!--Left arrow-->
+    <div class="img-arrow-circle" style="left: 3%" (click)="onArrowClick(-1)">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
 
-  <!--Right Arrow-->
-  <div class="img-arrow-circle" style="right: 3%" (click)="onArrowClick(1)">
-    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    <!--Right Arrow-->
+    <div class="img-arrow-circle" style="right: 3%" (click)="onArrowClick(1)">
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
   </div>
 </div>
