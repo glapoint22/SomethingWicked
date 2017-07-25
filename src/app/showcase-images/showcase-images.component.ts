@@ -7,7 +7,7 @@ import { fade } from "../animations";
 
 //Decorator
 @Component({
-  selector: 'app-showcase-images',
+  selector: 'showcase-images',
   templateUrl: './showcase-images.component.html',
   styleUrls: ['./showcase-images.component.scss'],
   animations: [fade]

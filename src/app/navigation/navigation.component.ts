@@ -8,7 +8,7 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
   animations: [

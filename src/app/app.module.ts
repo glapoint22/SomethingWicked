@@ -14,6 +14,7 @@ import { LoadComponent } from './load/load.component';
 
 //Services
 import { DataService } from "./data.service";
+import { TourComponent } from './tour/tour.component';
 
 
 
@@ -23,7 +24,8 @@ import { DataService } from "./data.service";
     HomeComponent,
     NavigationComponent,
     ShowcaseImagesComponent,
-    LoadComponent
+    LoadComponent,
+    TourComponent
   ],
   imports: [
     BrowserModule,
