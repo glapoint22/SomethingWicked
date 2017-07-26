@@ -32,18 +32,21 @@ export class ShowcaseImagesComponent implements OnInit {
     this.setHeight();
 
     //Get the showcase images
-    this.dataService.data
-      .subscribe((response) =>{
+    this.dataService.getData()
+      .subscribe(response => {
         //Assign the images
         this.images = <ShowcaseImage[]>response.showcaseImages;
         
-        //Set the states to hidden
-        for(let i = 0; i < this.images.length; i++){
-          this.images[i].fadeState = 'hidden';
-        }
+        if(this.images){
+          //Set the states to hidden
+          for(let i = 0; i < this.images.length; i++){
+            this.images[i].fadeState = 'hidden';
+          }
 
-        //Push the first image into the array
-        this.showcaseImages.push(this.images[0]);
+          //Push the first image into the array
+          this.showcaseImages.push(this.images[0]);
+        }
+        
       });
   }
   //-----------------------------------------------------------------------------------------------------------startTimer-------------------------------------------------------------------------------

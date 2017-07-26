@@ -1,19 +1,17 @@
-<div id="tour" class="section">
-  <div class="section-content">
-    <div class="section-title">TOUR</div>
-    <table cellspacing="0">
-      <tr>
-        <th class="date">DATE</th>
-        <th class="time">TIME</th>
-        <th class="venue">VENUE</th>
-        <th>LOCATION</th>
-      </tr>
-      <tr *ngFor="let show of shows">
-        <td>{{show.date | uppercase}}</td>
-        <td>{{show.time}}</td>
-        <td>{{show.venue.name | uppercase}}</td>
-        <td><a target="_blank" href="{{show.venue.url}}">{{show.venue.location | uppercase}}</a> </td>
-      </tr>
-    </table>
-  </div>
+<div class="section-content">
+  <div class="section-title">TOUR</div>
+  <table cellspacing="0">
+    <tr>
+      <th class="date">DATE</th>
+      <th class="time">TIME</th>
+      <th class="venue">VENUE</th>
+      <th>LOCATION</th>
+    </tr>
+    <tr *ngFor="let show of shows">
+      <td>{{show.date | uppercase}}</td>
+      <td>{{show.time}}</td>
+      <td>{{show.venue.name | uppercase}}</td>
+      <td><a target="_blank" href="{{show.venue.url}}">{{show.venue.location | uppercase}}</a> </td>
+    </tr>
+  </table>
 </div>

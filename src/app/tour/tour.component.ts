@@ -14,9 +14,6 @@ export class TourComponent implements OnInit {
 
   ngOnInit() {
     //Get the shows
-    this.dataService.data
-      .subscribe((response) =>{
-        this.shows = <Show[]>response.shows;
-      });
+    this.dataService.getData().subscribe(response => this.shows = response.shows);
   }
 }
