@@ -1,0 +1,11 @@
+<div class="section-content">
+  <div class="section-title">VIDEOS</div>
+  <ul>
+    <li *ngFor="let video of videos | async">
+      <div (click)="showVideos(video.id)" class="icon"><img src="{{video.thumbnail}}" /></div>
+      <div class="title-bar">
+        <div class="title">{{video.title | uppercase}}</div>
+      </div>
+    </li>
+  </ul>
+</div>

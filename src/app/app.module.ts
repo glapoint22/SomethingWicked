@@ -16,6 +16,7 @@ import { LoadComponent } from './load/load.component';
 import { DataService } from "./data.service";
 import { TourComponent } from './tour/tour.component';
 import { MusicComponent } from './music/music.component';
+import { VideosComponent } from './videos/videos.component';
 
 
 
@@ -27,7 +28,8 @@ import { MusicComponent } from './music/music.component';
     ShowcaseImagesComponent,
     LoadComponent,
     TourComponent,
-    MusicComponent
+    MusicComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,
