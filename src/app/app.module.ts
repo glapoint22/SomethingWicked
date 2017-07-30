@@ -11,12 +11,13 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowcaseImagesComponent } from './showcase-images/showcase-images.component';
 import { LoadComponent } from './load/load.component';
+import { VideoGroupsComponent } from './video-groups/video-groups.component';
 
 //Services
 import { DataService } from "./data.service";
 import { TourComponent } from './tour/tour.component';
 import { MusicComponent } from './music/music.component';
-import { VideosComponent } from './videos/videos.component';
+
 
 
 
@@ -29,7 +30,7 @@ import { VideosComponent } from './videos/videos.component';
     LoadComponent,
     TourComponent,
     MusicComponent,
-    VideosComponent
+    VideoGroupsComponent
   ],
   imports: [
     BrowserModule,
