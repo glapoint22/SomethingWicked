@@ -12,13 +12,12 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ShowcaseImagesComponent } from './showcase-images/showcase-images.component';
 import { LoadComponent } from './load/load.component';
 import { VideoGroupsComponent } from './video-groups/video-groups.component';
+import { PhotoGroupsComponent } from './photo-groups/photo-groups.component';
 
 //Services
 import { DataService } from "./data.service";
 import { TourComponent } from './tour/tour.component';
 import { MusicComponent } from './music/music.component';
-
-
 
 
 @NgModule({
@@ -30,7 +29,8 @@ import { MusicComponent } from './music/music.component';
     LoadComponent,
     TourComponent,
     MusicComponent,
-    VideoGroupsComponent
+    VideoGroupsComponent,
+    PhotoGroupsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+<div class="section-content">
+  <div class="section-title">PHOTOS</div>
+  <ul>
+    <li *ngFor="let photoGroup of photoGroups">
+      <div (click)="showPhotos(photoGroup.id)" class="icon"><img src="{{photoGroup.thumbnail}}" /></div>
+      <div class="title-bar">
+        <div class="title">{{photoGroup.title | uppercase}}</div>
+      </div>
+    </li>
+  </ul>
+</div>
