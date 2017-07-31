@@ -15,7 +15,7 @@ export class VideoGroupsComponent implements OnInit {
   ngOnInit() {
     //Get the video groups
     this.dataService.getData().subscribe(response => {
-      this.videoGroups = response.videoGroups
+      this.videoGroups = response.videoGroups;
     });
   }
 

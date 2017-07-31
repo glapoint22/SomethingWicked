@@ -13,12 +13,12 @@ import { ShowcaseImagesComponent } from './showcase-images/showcase-images.compo
 import { LoadComponent } from './load/load.component';
 import { VideoGroupsComponent } from './video-groups/video-groups.component';
 import { PhotoGroupsComponent } from './photo-groups/photo-groups.component';
+import { MembersComponent } from './members/members.component';
 
 //Services
 import { DataService } from "./data.service";
 import { TourComponent } from './tour/tour.component';
 import { MusicComponent } from './music/music.component';
-
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { MusicComponent } from './music/music.component';
     TourComponent,
     MusicComponent,
     VideoGroupsComponent,
-    PhotoGroupsComponent
+    PhotoGroupsComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,

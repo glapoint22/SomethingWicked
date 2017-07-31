@@ -15,7 +15,7 @@ export class PhotoGroupsComponent implements OnInit {
   ngOnInit() {
      //Get the photo groups
     this.dataService.getData().subscribe(response => {
-      this.photoGroups = response.photoGroups
+      this.photoGroups = response.photoGroups;
     });
   }
 
