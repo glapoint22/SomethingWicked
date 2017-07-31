@@ -14,6 +14,7 @@ import { LoadComponent } from './load/load.component';
 import { VideoGroupsComponent } from './video-groups/video-groups.component';
 import { PhotoGroupsComponent } from './photo-groups/photo-groups.component';
 import { MembersComponent } from './members/members.component';
+import { SocialMediaComponent } from './social-media/social-media.component';
 
 //Services
 import { DataService } from "./data.service";
@@ -31,7 +32,8 @@ import { MusicComponent } from './music/music.component';
     MusicComponent,
     VideoGroupsComponent,
     PhotoGroupsComponent,
-    MembersComponent
+    MembersComponent,
+    SocialMediaComponent
   ],
   imports: [
     BrowserModule,
