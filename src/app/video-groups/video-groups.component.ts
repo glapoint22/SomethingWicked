@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaGroup } from "../classes/mediaGroup";
 import { DataService } from "../data.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'video-groups',
@@ -9,7 +10,7 @@ import { DataService } from "../data.service";
 export class VideoGroupsComponent implements OnInit {
   private videoGroups: MediaGroup[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
@@ -21,6 +22,6 @@ export class VideoGroupsComponent implements OnInit {
 
   //----------------------------------------------------------------------------------------------------------showVideos---------------------------------------------------------------------------------
   showVideos(videoGroupId: string): void{
-    console.log(videoGroupId);
+    this.router.navigate(['/videos', videoGroupId])
   }
 }

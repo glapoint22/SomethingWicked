@@ -15,11 +15,14 @@ import { VideoGroupsComponent } from './video-groups/video-groups.component';
 import { PhotoGroupsComponent } from './photo-groups/photo-groups.component';
 import { MembersComponent } from './members/members.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
+import { ContentWindowComponent } from './content-window/content-window.component';
 
 //Services
 import { DataService } from "./data.service";
 import { TourComponent } from './tour/tour.component';
 import { MusicComponent } from './music/music.component';
+import { VideosComponent } from './videos/videos.component';
+import { ContentWindowService } from "./content-window.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { MusicComponent } from './music/music.component';
     VideoGroupsComponent,
     PhotoGroupsComponent,
     MembersComponent,
-    SocialMediaComponent
+    SocialMediaComponent,
+    ContentWindowComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,7 @@ import { MusicComponent } from './music/music.component';
     BrowserAnimationsModule,
     HttpModule
   ],
-  providers: [DataService],
+  providers: [DataService, ContentWindowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

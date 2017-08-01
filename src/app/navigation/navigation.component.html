@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="mobile-menu-dropdown" [@menuState]="state">
+<div class="mobile-menu-dropdown" [@menuState]="state" [style.display]="display" (@menuState.start)="onAnimationStart($event)" (@menuState.done)="onAnimationDone($event)">
   <div class="mobile-nav">TOUR</div>
   <div class="mobile-nav">MUSIC</div>
   <div class="mobile-nav">VIDEOS</div>

@@ -28,10 +28,25 @@ import {
 export class NavigationComponent {
   isVisible: boolean = false;
   state: string = 'inactive';
+  display: string = 'none';
 
-  //Show or hide the mobile menu
+  //----------------------------------------------------------------------------------menuClick----------------------------------------------------------------------------
   menuClick(): void {
-        this.isVisible = !this.isVisible;
-        this.state = this.isVisible ? this.state = 'active' : this.state = 'inactive';
+    this.isVisible = !this.isVisible;
+    this.state = this.isVisible ? this.state = 'active' : this.state = 'inactive';
+  }
+
+  //-------------------------------------------------------------------------------onAnimationStart----------------------------------------------------------------------------
+  onAnimationStart(event): void{
+    if(event.fromState == 'inactive'){
+      this.display = 'block';
+    }
+  }
+
+  //-------------------------------------------------------------------------------onAnimationDone----------------------------------------------------------------------------
+  onAnimationDone(event): void{
+    if(event.fromState == 'active'){
+      this.display = 'none';
+    }
   }
 }
