@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component  } from '@angular/core';
 import { fade } from "../animations";
 import { ContentWindowService } from "../content-window.service";
 
@@ -8,11 +8,6 @@ import { ContentWindowService } from "../content-window.service";
   styleUrls: ['./content-window.component.scss'],
   animations: [fade]
 })
-export class ContentWindowComponent implements OnInit {
+export class ContentWindowComponent {
   constructor(private contentWindowService: ContentWindowService){}
-
-  ngOnInit() {
-  }
-
-  
 }

@@ -1,17 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ContentWindowService } from "../content-window.service";
+import { Component } from '@angular/core';
+import { MediaComponent } from "../media/media.component";
 
 @Component({
-  selector: 'app-videos',
+  selector: 'videos',
   templateUrl: './videos.component.html',
   styleUrls: ['./videos.component.scss']
 })
-export class VideosComponent implements OnInit {
-
-  constructor(private contentWindowService: ContentWindowService) { }
-
-  ngOnInit() {
-    this.contentWindowService.fadeState = 'visible';
-    this.contentWindowService.display = 'block';
-  }
-}
+export class VideosComponent extends MediaComponent  {}

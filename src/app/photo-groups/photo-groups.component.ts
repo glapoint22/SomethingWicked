@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaGroup } from "../classes/mediaGroup";
 import { DataService } from "../data.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'photo-groups',
@@ -9,7 +10,7 @@ import { DataService } from "../data.service";
 export class PhotoGroupsComponent implements OnInit {
   private photoGroups: MediaGroup[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
@@ -21,6 +22,6 @@ export class PhotoGroupsComponent implements OnInit {
 
   //----------------------------------------------------------------------------------------------------------showPhotos---------------------------------------------------------------------------------
   showPhotos(photoGroupId: string): void{
-    console.log(photoGroupId);
+    this.router.navigate(['/photos', photoGroupId])
   }
 }

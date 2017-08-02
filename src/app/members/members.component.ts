@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from "../classes/member";
 import { DataService } from "../data.service";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { DataService } from "../data.service";
 export class MembersComponent implements OnInit {
   private members: Member[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
@@ -22,6 +23,6 @@ export class MembersComponent implements OnInit {
 
   //----------------------------------------------------------------------------------------------------------showBio---------------------------------------------------------------------------------
   showBio(member: string): void{
-    console.log(member);
+    this.router.navigate(['/bios', member])
   }
 }

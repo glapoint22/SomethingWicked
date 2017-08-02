@@ -16,6 +16,9 @@ import { PhotoGroupsComponent } from './photo-groups/photo-groups.component';
 import { MembersComponent } from './members/members.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { ContentWindowComponent } from './content-window/content-window.component';
+import { PhotosComponent } from './photos/photos.component';
+import { MediaComponent } from './media/media.component';
+import { BiosComponent } from './bios/bios.component';
 
 //Services
 import { DataService } from "./data.service";
@@ -38,7 +41,10 @@ import { ContentWindowService } from "./content-window.service";
     MembersComponent,
     SocialMediaComponent,
     ContentWindowComponent,
-    VideosComponent
+    VideosComponent,
+    PhotosComponent,
+    MediaComponent,
+    BiosComponent
   ],
   imports: [
     BrowserModule,
