@@ -1,6 +1,7 @@
 import { Component  } from '@angular/core';
 import { fade } from "../animations";
 import { ContentWindowService } from "../content-window.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'content-window',
@@ -9,5 +10,14 @@ import { ContentWindowService } from "../content-window.service";
   animations: [fade]
 })
 export class ContentWindowComponent {
-  constructor(private contentWindowService: ContentWindowService){}
+  constructor(private contentWindowService: ContentWindowService, private router: Router){}
+
+  close():void{
+    this.router.navigate(['/']);
+    this.contentWindowService.hideContentWindow();
+  }
+
+  stopPropagation(event): void{
+    event.stopPropagation();
+  }
 }

@@ -1,4 +1,6 @@
-<div class="content-window" (click)="close()" [@fadeState]="contentWindowService.fadeState" [style.display]="contentWindowService.display" (@fadeState.done)="contentWindowService.onAnimationDone($event)">
+<div class="content-window" (click)="close()" [@fadeState]="contentWindowService.fadeState" 
+    [style.display]="contentWindowService.display" (@fadeState.done)="contentWindowService.onAnimationDone($event)" 
+    (@fadeState.start)="contentWindowService.onAnimationStart($event)">
   <div class="window-background">
     <div class="window">
       <div class="title-bar" (click)="stopPropagation($event)">
