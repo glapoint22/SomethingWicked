@@ -11,11 +11,11 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'videos/:videoGroupId',
+        path: 'videos/:id',
         component: VideosComponent
       },
       {
-        path: 'photos/:photoGroupId',
+        path: 'photos/:id',
         component: PhotosComponent
       },
       {

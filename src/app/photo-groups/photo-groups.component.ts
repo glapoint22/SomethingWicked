@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MediaGroup } from "../classes/mediaGroup";
 import { DataService } from "../data.service";
 import { Router } from '@angular/router';
+import { ContentWindowService } from "../content-window.service";
 
 @Component({
   selector: 'photo-groups',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class PhotoGroupsComponent implements OnInit {
   private photoGroups: MediaGroup[];
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private contentWindowService: ContentWindowService) { }
 
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
@@ -22,6 +23,12 @@ export class PhotoGroupsComponent implements OnInit {
 
   //----------------------------------------------------------------------------------------------------------showPhotos---------------------------------------------------------------------------------
   showPhotos(photoGroupId: string): void{
-    this.router.navigate(['/photos', photoGroupId])
+    this.contentWindowService.showContentWindow();
+    this.contentWindowService
+      .getContent(`api/photos/${photoGroupId}`)
+      .subscribe(content => {
+        this.contentWindowService.setContent(content, '');
+        this.router.navigate(['/photos', photoGroupId], { queryParams: { id: this.contentWindowService.data[0] } });
+      });
   }
 }

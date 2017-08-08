@@ -1,11 +1,10 @@
-<div class="content-window" (click)="close()" [@fadeState]="contentWindowService.fadeState" 
-    [style.display]="contentWindowService.display" (@fadeState.done)="contentWindowService.onAnimationDone($event)" 
-    (@fadeState.start)="contentWindowService.onAnimationStart($event)">
+<div class="content-window" (click)="close()" [@fadeState]="contentWindowService.fadeState" [style.display]="contentWindowService.display"
+  (@fadeState.done)="contentWindowService.onAnimationDone($event)" (@fadeState.start)="contentWindowService.onAnimationStart($event)">
   <div class="window-background">
     <div class="window">
       <div class="title-bar" (click)="stopPropagation($event)">
         <div class="content-title">
-          <!-- {{contentWindow.title | uppercase}} -->
+          {{contentWindowService.title | uppercase}}
           <span class="close-button" (click)="close()"><i class="fa fa-times" aria-hidden="true"></i></span>
         </div>
       </div>
@@ -13,7 +12,17 @@
         <!-- <div class="loading" ng-show="contentWindow.load">
           <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
         </div>-->
+
         <router-outlet></router-outlet>
+        <div id="content-arrows">
+          <!--Arrow Buttons-->
+          <div class="img-arrow-circle img-arrow-circle-left" (click)="contentWindowService.onArrowClick(-1)">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </div>
+          <div class="img-arrow-circle img-arrow-circle-right" (click)="contentWindowService.onArrowClick(1)">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MediaGroup } from "../classes/mediaGroup";
 import { DataService } from "../data.service";
 import { Router } from '@angular/router';
+import { ContentWindowService } from "../content-window.service";
 
 @Component({
   selector: 'video-groups',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class VideoGroupsComponent implements OnInit {
   private videoGroups: MediaGroup[];
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private contentWindowService: ContentWindowService) { }
 
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
@@ -22,6 +23,12 @@ export class VideoGroupsComponent implements OnInit {
 
   //----------------------------------------------------------------------------------------------------------showVideos---------------------------------------------------------------------------------
   showVideos(videoGroupId: string): void{
-    this.router.navigate(['/videos', videoGroupId])
+    this.contentWindowService.showContentWindow();
+    this.contentWindowService
+      .getContent(`api/videos/${videoGroupId}`)
+      .subscribe(content => {
+        this.contentWindowService.setContent(content, '');
+        this.router.navigate(['/videos', videoGroupId], { queryParams: { id: this.contentWindowService.data[0] } });
+      });
   }
 }
