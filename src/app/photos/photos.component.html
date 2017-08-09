@@ -1,3 +1,3 @@
-<p style="color: white">
-  photos works!
-</p>
+<div class="slider" *ngIf="contentWindowService.content" [style.transform]="translate">
+  <img *ngFor="let data of contentWindowService.content.data" [src]="data.content" class="photo">
+</div>

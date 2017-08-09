@@ -27,6 +27,7 @@ import { MusicComponent } from './music/music.component';
 import { VideosComponent } from './videos/videos.component';
 import { ContentWindowService } from "./content-window.service";
 
+
 @NgModule({
   declarations: [
     AppComponent,

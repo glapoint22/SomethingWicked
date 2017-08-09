@@ -6,9 +6,9 @@ import { Http, Response } from "@angular/http";
 export class ContentWindowService {
   public fadeState: string = 'hidden';
   public display: string = 'none';
-  public title: string = '';
-  public data: string[] = [];
-  public index: number = 0;
+  public content = null;
+  
+  private index: number = 0;
 
   constructor(private router: Router, private http: Http){}
 
@@ -34,9 +34,9 @@ export class ContentWindowService {
 
   onArrowClick(direction: number): void{
     this.index += direction;
-    this.index = Math.max(0, Math.min(this.index, this.data.length - 1));
+    this.index = Math.max(0, Math.min(this.index, this.content.data.length - 1));
 
-    this.router.navigate([], { queryParams: { id: this.data[this.index] } })
+    this.router.navigate([], { queryParams: { id: this.content.data[this.index].id } })
   }
 
   getContent(url: string){
@@ -46,10 +46,7 @@ export class ContentWindowService {
   }
 
   setContent(content, startingId){
-    let properties = Object.keys(content);
-
-    this.data = content[properties[1]].data.map(data => data.id);
-    this.title = content[properties[0]];
-    this.index = Math.max(0, this.data.indexOf(startingId));
+    this.content = content;
+    this.index = Math.max(0, this.content.data.map(data => data.id).indexOf(startingId));
   }
 }

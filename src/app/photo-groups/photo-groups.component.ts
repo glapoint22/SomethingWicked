@@ -28,7 +28,7 @@ export class PhotoGroupsComponent implements OnInit {
       .getContent(`api/photos/${photoGroupId}`)
       .subscribe(content => {
         this.contentWindowService.setContent(content, '');
-        this.router.navigate(['/photos', photoGroupId], { queryParams: { id: this.contentWindowService.data[0] } });
+        this.router.navigate(['/photos', photoGroupId], { queryParams: { id: this.contentWindowService.content.data[0].id } });
       });
   }
 }

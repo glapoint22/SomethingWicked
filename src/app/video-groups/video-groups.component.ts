@@ -28,7 +28,7 @@ export class VideoGroupsComponent implements OnInit {
       .getContent(`api/videos/${videoGroupId}`)
       .subscribe(content => {
         this.contentWindowService.setContent(content, '');
-        this.router.navigate(['/videos', videoGroupId], { queryParams: { id: this.contentWindowService.data[0] } });
+        this.router.navigate(['/videos', videoGroupId], { queryParams: { id: this.contentWindowService.content.data[0].id } });
       });
   }
 }

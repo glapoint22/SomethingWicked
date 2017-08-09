@@ -19,7 +19,7 @@ const routes: Routes = [
         component: PhotosComponent
       },
       {
-        path: 'bios/:member',
+        path: 'bios/:id',
         component: BiosComponent
       }
     ]
