@@ -1,11 +1,13 @@
-<div class="section-content">
-  <div class="section-title">BIOS</div>
-  <ul>
-    <li *ngFor="let member of members">
-      <div (click)="showBio(member.name)" class="icon"><img src="assets/images/members/{{member.thumbnail}}" /></div>
-      <div class="title-bar">
-        <div class="title">{{member.name | uppercase}}</div>
-      </div>
-    </li>
-  </ul>
+<div id="bios">
+  <div class="section-content">
+    <div class="section-title">BIOS</div>
+    <ul>
+      <li *ngFor="let member of members">
+        <div (click)="showBio(member.name)" class="icon"><img src="assets/images/members/{{member.thumbnail}}" /></div>
+        <div class="title-bar">
+          <div class="title">{{member.name | uppercase}}</div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

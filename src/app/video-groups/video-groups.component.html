@@ -1,11 +1,13 @@
-<div class="section-content">
-  <div class="section-title">VIDEOS</div>
-  <ul>
-    <li *ngFor="let videoGroup of videoGroups">
-      <div (click)="showVideos(videoGroup.id)" class="icon"><img src="{{videoGroup.thumbnail}}" /></div>
-      <div class="title-bar">
-        <div class="title">{{videoGroup.title | uppercase}}</div>
-      </div>
-    </li>
-  </ul>
+<div id="videos">
+  <div class="section-content">
+    <div class="section-title">VIDEOS</div>
+    <ul>
+      <li *ngFor="let videoGroup of videoGroups">
+        <div (click)="showVideos(videoGroup.id)" class="icon"><img src="{{videoGroup.thumbnail}}" /></div>
+        <div class="title-bar">
+          <div class="title">{{videoGroup.title | uppercase}}</div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

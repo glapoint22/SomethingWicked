@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from "../data.service";
 import { Song } from "../classes/song";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'music',
@@ -12,7 +13,7 @@ export class MusicComponent implements OnInit {
   private sortColumn: string = 'name';
   private isDescending: boolean = false;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
@@ -49,7 +50,7 @@ export class MusicComponent implements OnInit {
   }
 
   //----------------------------------------------------------------------------------------------------------showVideo--------------------------------------------------------------------------------------
-  showVideo(videoGroup: string, videoId: string): void{
-    console.log('Showing video');
+  showVideo(videoGroupId: string, videoId: string): void{
+    this.router.navigate(['/videos', videoGroupId], { queryParams: { id: videoId } });
   }
 }

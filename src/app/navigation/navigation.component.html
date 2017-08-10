@@ -1,11 +1,11 @@
 <div class="nav-bar">
-  <img class="logo" src="assets/images/SomethingWickedLogo.png" />
+  <img class="logo" src="assets/images/SomethingWickedLogo.png" (click)="scrollTo('top')" title="Back to top"/>
   <div class="nav-grp">
-    <div class="nav">TOUR</div>
-    <div class="nav">MUSIC</div>
-    <div class="nav">VIDEOS</div>
-    <div class="nav">PHOTOS</div>
-    <div class="nav">BIOS</div>
+    <div class="nav" (click)="scrollTo('tour')">TOUR</div>
+    <div class="nav" (click)="scrollTo('music')">MUSIC</div>
+    <div class="nav" (click)="scrollTo('videos')">VIDEOS</div>
+    <div class="nav" (click)="scrollTo('photos')">PHOTOS</div>
+    <div class="nav" (click)="scrollTo('bios')">BIOS</div>
   </div>
   <div class="mobile-menu" (click)="menuClick()">
     <i class="fa fa-align-justify" aria-hidden="true"></i>
@@ -13,9 +13,9 @@
 </div>
 
 <div class="mobile-menu-dropdown" [@menuState]="state" [style.display]="display" (@menuState.start)="onAnimationStart($event)" (@menuState.done)="onAnimationDone($event)">
-  <div class="mobile-nav">TOUR</div>
-  <div class="mobile-nav">MUSIC</div>
-  <div class="mobile-nav">VIDEOS</div>
-  <div class="mobile-nav">PHOTOS</div>
-  <div class="mobile-nav">BIOS</div>
+  <div class="mobile-nav" (click)="scrollTo('tour')" (click)="menuClick()">TOUR</div>
+  <div class="mobile-nav" (click)="scrollTo('music')" (click)="menuClick()">MUSIC</div>
+  <div class="mobile-nav" (click)="scrollTo('videos')" (click)="menuClick()">VIDEOS</div>
+  <div class="mobile-nav" (click)="scrollTo('photos')" (click)="menuClick()">PHOTOS</div>
+  <div class="mobile-nav" (click)="scrollTo('bios')" (click)="menuClick()">BIOS</div>
 </div>
