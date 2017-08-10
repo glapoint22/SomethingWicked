@@ -1,3 +1,6 @@
-<p style="color: white">
-  bios works!
-</p>
+<div class="bio">
+    <img [src]="thumbnail" *ngIf="thumbnail"/>
+    <div class="bio-container">
+        <div class="bio-text" [innerHTML]="bio"></div>
+    </div>
+</div>

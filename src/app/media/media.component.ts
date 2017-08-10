@@ -17,5 +17,5 @@ export class MediaComponent implements OnInit, OnDestroy {
     this.contentWindowService.hideContentWindow();
   }
 
-  displayContent(id: string): void { }
+  displayContent(content): void { }
 }

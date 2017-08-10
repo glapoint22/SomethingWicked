@@ -1,0 +1,47 @@
+@import 'Utility';
+
+.bio{
+    height: 100%; 
+    white-space: normal; 
+    background: $color5;
+    padding-bottom: 20px;
+    .bio-container{
+        height: 75%; 
+        background: $color5; 
+        margin: 20px 25px 0 25px;
+        overflow: auto;
+    }
+    .bio-text{
+        padding: 5px 0 5vw 0; 
+        font-size: 28px; 
+        color: $color3;
+        font-family: Nyala;
+    }
+    img{
+        margin: auto; 
+        display: block; 
+        border-radius: 50%; 
+        border: 2px solid #b9b9b9;
+        position: relative;
+        top: 10px;
+    }
+    @media screen and (max-width: 1023px) {
+        img{
+            width: 28.7109375vw;
+        }
+        .bio-text{
+            font-size: 20px; 
+        }
+        .bio-container{
+            margin: 20px 10px 0 10px;
+        }
+    }
+    @media screen and (max-width: 511px) {
+        .bio-text{
+            font-size: 12px; 
+        }
+        .bio-container{
+            margin: 20px 5px 0 5px;
+        }
+    }
+}

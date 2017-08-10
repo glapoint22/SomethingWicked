@@ -47,6 +47,6 @@ export class ContentWindowService {
 
   setContent(content, startingId){
     this.content = content;
-    this.index = Math.max(0, this.content.data.map(data => data.id).indexOf(startingId));
+    if(content.data)this.index = Math.max(0, this.content.data.map(data => data.id).indexOf(startingId));
   }
 }

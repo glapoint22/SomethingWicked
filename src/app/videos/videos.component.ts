@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { MediaCollectionComponent } from "../media-collection/media-Collection.component";
+import { MediaCollectionsComponent } from "../media-collections/media-Collections.component";
 
 @Component({
   selector: 'videos',
   templateUrl: './videos.component.html',
   styleUrls: ['./videos.component.scss']
 })
-export class VideosComponent extends MediaCollectionComponent {
+export class VideosComponent extends MediaCollectionsComponent {
   displayContent(videoID: string): void{
     let iframe = document.getElementById('iframe');
     let iWindow = (<HTMLIFrameElement> iframe).contentWindow;

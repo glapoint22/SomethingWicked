@@ -14,7 +14,7 @@
         </div>-->
 
         <router-outlet></router-outlet>
-        <div id="content-arrows">
+        <div id="content-arrows" *ngIf="contentWindowService.content && contentWindowService.content.data">
           <!--Arrow Buttons-->
           <div class="img-arrow-circle img-arrow-circle-left" (click)="contentWindowService.onArrowClick(-1)">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>

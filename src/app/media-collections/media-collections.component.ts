@@ -6,7 +6,7 @@ import { ContentWindowService } from "../content-window.service";
 @Component({
   template: ''
 })
-export class MediaCollectionComponent extends MediaComponent {
+export class MediaCollectionsComponent extends MediaComponent {
 
   constructor(contentWindowService: ContentWindowService, private route: ActivatedRoute) { 
     super(contentWindowService);

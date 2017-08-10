@@ -19,13 +19,15 @@ import { ContentWindowComponent } from './content-window/content-window.componen
 import { PhotosComponent } from './photos/photos.component';
 import { MediaComponent } from './media/media.component';
 import { BiosComponent } from './bios/bios.component';
-
-//Services
-import { DataService } from "./data.service";
 import { TourComponent } from './tour/tour.component';
 import { MusicComponent } from './music/music.component';
 import { VideosComponent } from './videos/videos.component';
+import { MediaSingleComponent } from './media-single/media-single.component';
+
+//Services
+import { DataService } from "./data.service";
 import { ContentWindowService } from "./content-window.service";
+
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { ContentWindowService } from "./content-window.service";
     VideosComponent,
     PhotosComponent,
     MediaComponent,
-    BiosComponent
+    BiosComponent,
+    MediaSingleComponent
   ],
   imports: [
     BrowserModule,
