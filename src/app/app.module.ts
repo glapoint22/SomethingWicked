@@ -23,10 +23,12 @@ import { TourComponent } from './tour/tour.component';
 import { MusicComponent } from './music/music.component';
 import { VideosComponent } from './videos/videos.component';
 import { MediaSingleComponent } from './media-single/media-single.component';
+import { MediaGroupsComponent } from './media-groups/media-groups.component';
 
 //Services
 import { DataService } from "./data.service";
 import { ContentWindowService } from "./content-window.service";
+
 
 
 
@@ -48,7 +50,8 @@ import { ContentWindowService } from "./content-window.service";
     PhotosComponent,
     MediaComponent,
     BiosComponent,
-    MediaSingleComponent
+    MediaSingleComponent,
+    MediaGroupsComponent
   ],
   imports: [
     BrowserModule,

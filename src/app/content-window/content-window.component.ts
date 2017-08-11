@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   animations: [fade]
 })
 export class ContentWindowComponent {
-  constructor(private contentWindowService: ContentWindowService, private router: Router){}
+  constructor(public contentWindowService: ContentWindowService, private router: Router){}
 
   close():void{
     this.router.navigate(['/']);

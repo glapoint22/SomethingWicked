@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MediaCollectionsComponent } from "../media-collections/media-Collections.component";
+import { MediaGroupsComponent } from '../media-groups/media-groups.component';
 
 @Component({
   selector: 'videos',
@@ -7,7 +7,7 @@ import { MediaCollectionsComponent } from "../media-collections/media-Collection
             scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true" 
             (load)="onLoad()"></iframe>`
 })
-export class VideosComponent extends MediaCollectionsComponent {
+export class VideosComponent extends MediaGroupsComponent {
   iframe;
   displayContent(videoID: string): void{
     this.contentWindowService.isLoaded = false;

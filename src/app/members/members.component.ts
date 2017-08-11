@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './members.component.html'
 })
 export class MembersComponent implements OnInit {
-  private members: Member[];
+  public members: Member[];
 
   constructor(private dataService: DataService, private router: Router) { }
 

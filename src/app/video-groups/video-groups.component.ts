@@ -9,7 +9,7 @@ import { ContentWindowService } from "../content-window.service";
   templateUrl: './video-groups.component.html'
 })
 export class VideoGroupsComponent implements OnInit {
-  private videoGroups: MediaGroup[];
+  public videoGroups: MediaGroup[];
 
   constructor(private dataService: DataService, private router: Router, private contentWindowService: ContentWindowService) { }
 

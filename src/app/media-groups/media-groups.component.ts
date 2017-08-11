@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MediaComponent } from "../media/media.component";
 import { ActivatedRoute } from '@angular/router';
 import { ContentWindowService } from "../content-window.service";
 
 @Component({
-  template: ''
+  selector: 'app-media-groups',
+  templateUrl: './media-groups.component.html',
+  styleUrls: ['./media-groups.component.scss']
 })
-export class MediaCollectionsComponent extends MediaComponent {
+export class MediaGroupsComponent extends MediaComponent implements OnInit {
 
   constructor(contentWindowService: ContentWindowService, private route: ActivatedRoute) { 
     super(contentWindowService);
@@ -14,7 +16,7 @@ export class MediaCollectionsComponent extends MediaComponent {
 
   ngOnInit() {
     super.ngOnInit();
-
+    
     this.route.queryParamMap.subscribe(queryParams => {
       let queryParam: string = queryParams.get('id'), contentType: string, param: string;
 
@@ -38,4 +40,5 @@ export class MediaCollectionsComponent extends MediaComponent {
       this.displayContent(queryParam);
     });
   }
+
 }

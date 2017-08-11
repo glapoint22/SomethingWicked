@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { MediaCollectionsComponent } from "../media-collections/media-Collections.component";
+import { MediaGroupsComponent } from '../media-groups/media-groups.component';
 
 @Component({
   selector: 'photos',
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.scss']
 })
-export class PhotosComponent extends MediaCollectionsComponent {
+export class PhotosComponent extends MediaGroupsComponent {
   public translate: string;
   private counter: number = 0;
 

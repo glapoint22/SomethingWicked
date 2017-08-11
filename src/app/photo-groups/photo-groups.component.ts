@@ -9,7 +9,7 @@ import { ContentWindowService } from "../content-window.service";
   templateUrl: './photo-groups.component.html'
 })
 export class PhotoGroupsComponent implements OnInit {
-  private photoGroups: MediaGroup[];
+  public photoGroups: MediaGroup[];
 
   constructor(private dataService: DataService, private router: Router, private contentWindowService: ContentWindowService) { }
 
