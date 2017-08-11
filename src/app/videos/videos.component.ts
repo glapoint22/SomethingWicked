@@ -20,6 +20,5 @@ export class VideosComponent extends MediaCollectionsComponent {
     if(this.iframe){
       this.contentWindowService.isLoaded = true;
     }
-    
   }
 }

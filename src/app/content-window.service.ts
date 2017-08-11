@@ -22,8 +22,8 @@ export class ContentWindowService {
     if(event.fromState == 'visible' && !event.element.classList.contains('ng-animate-queued')){
       this.display = 'none';
       this.isLoaded = false;
-      if(this.content && this.content.title){
-        this.content.title = '';
+      if(this.content){
+        this.content = null;
       }
     }
   }
