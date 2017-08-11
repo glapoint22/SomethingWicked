@@ -11,6 +11,7 @@ export class BiosComponent extends MediaSingleComponent {
   public thumbnail: string;
 
   displayContent(content): void{
+    this.contentWindowService.isLoaded = true;
     this.bio = content.bio;
     this.thumbnail = `assets/images/members/${content.thumbnail}`;
   }

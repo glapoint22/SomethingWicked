@@ -9,17 +9,14 @@
         </div>
       </div>
       <div class="content-container" (click)="stopPropagation($event)">
-        <!-- <div class="loading" ng-show="contentWindow.load">
-          <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-        </div>-->
-
+        <load [isLoaded]="contentWindowService.isLoaded"></load>
         <router-outlet></router-outlet>
         <div id="content-arrows" *ngIf="contentWindowService.content && contentWindowService.content.data">
           <!--Arrow Buttons-->
-          <div class="img-arrow-circle img-arrow-circle-left" (click)="contentWindowService.onArrowClick(-1)">
+          <div class="img-arrow-circle img-arrow-circle-left" (click)="contentWindowService.onArrowClick(-1)" *ngIf="contentWindowService.index > 0">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
           </div>
-          <div class="img-arrow-circle img-arrow-circle-right" (click)="contentWindowService.onArrowClick(1)">
+          <div class="img-arrow-circle img-arrow-circle-right" (click)="contentWindowService.onArrowClick(1)" *ngIf="contentWindowService.index < contentWindowService.content.data.length - 1">
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
           </div>
         </div>

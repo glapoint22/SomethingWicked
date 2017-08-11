@@ -7,8 +7,8 @@ export class ContentWindowService {
   public fadeState: string = 'hidden';
   public display: string = 'none';
   public content = null;
-  
-  private index: number = 0;
+  public isLoaded: boolean = false;
+  public index: number = 0;
 
   constructor(private router: Router, private http: Http){}
 
@@ -21,6 +21,10 @@ export class ContentWindowService {
   onAnimationDone(event): void{
     if(event.fromState == 'visible' && !event.element.classList.contains('ng-animate-queued')){
       this.display = 'none';
+      this.isLoaded = false;
+      if(this.content && this.content.title){
+        this.content.title = '';
+      }
     }
   }
 
@@ -36,7 +40,7 @@ export class ContentWindowService {
     this.index += direction;
     this.index = Math.max(0, Math.min(this.index, this.content.data.length - 1));
 
-    this.router.navigate([], { queryParams: { id: this.content.data[this.index].id } })
+    this.router.navigate([], { queryParams: { id: this.content.data[this.index].id } });
   }
 
   getContent(url: string){
