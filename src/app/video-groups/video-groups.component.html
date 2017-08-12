@@ -1,6 +1,9 @@
 <div id="videos">
   <div class="section-content">
-    <div class="section-title">VIDEOS</div>
+    <div class="section-title" *ngIf="videoGroups">VIDEOS</div>
+    <div style="text-align:center; color:#2b4467" *ngIf="!videoGroups">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    </div>
     <ul>
       <li *ngFor="let videoGroup of videoGroups">
         <div (click)="showVideos(videoGroup.id)" class="icon"><img src="{{videoGroup.thumbnail}}" /></div>

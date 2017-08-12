@@ -1,6 +1,9 @@
 <div id="photos">
   <div class="section-content">
-    <div class="section-title">PHOTOS</div>
+    <div class="section-title" *ngIf="photoGroups">PHOTOS</div>
+    <div style="text-align:center; color:#2b4467" *ngIf="!photoGroups">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    </div>
     <ul>
       <li *ngFor="let photoGroup of photoGroups">
         <div (click)="showPhotos(photoGroup.id)" class="icon"><img src="{{photoGroup.thumbnail}}" /></div>
