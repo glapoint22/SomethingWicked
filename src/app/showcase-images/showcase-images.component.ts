@@ -32,39 +32,39 @@ export class ShowcaseImagesComponent implements OnInit {
     this.setHeight();
 
     //Get the showcase images
-    this.dataService.getData()
-      .subscribe(response => {
+    this.dataService.get('api/ShowcaseImages')
+      .subscribe((response: any) => {
         //Assign the images
-        this.images = <ShowcaseImage[]>response.showcaseImages;
-        
-        if(this.images){
+        this.images = <ShowcaseImage[]>response;
+
+        if (this.images) {
           //Set the states to hidden
-          for(let i = 0; i < this.images.length; i++){
+          for (let i = 0; i < this.images.length; i++) {
             this.images[i].fadeState = 'hidden';
           }
 
           //Push the first image into the array
           this.showcaseImages.push(this.images[0]);
         }
-        
+
       });
   }
   //-----------------------------------------------------------------------------------------------------------startTimer-------------------------------------------------------------------------------
-  startTimer(direction: number): void{
+  startTimer(direction: number): void {
     this.interval = window.setInterval(() => {
       this.showNextImg(direction);
     }, 10000);
   }
   //-----------------------------------------------------------------------------------------------------------showNextImg-------------------------------------------------------------------------------
-  showNextImg(direction: number): void{
+  showNextImg(direction: number): void {
     //Hide the current image
     this.showcaseImages[this.currentImageIndex].fadeState = 'hidden';
 
     //Set the next image index based on the direction
     this.currentImageIndex += direction;
-    if(this.currentImageIndex < 0){
+    if (this.currentImageIndex < 0) {
       this.currentImageIndex = this.showcaseImages.length - 1;
-    }else{
+    } else {
       this.currentImageIndex = this.currentImageIndex % this.showcaseImages.length;
     }
 
@@ -73,7 +73,7 @@ export class ShowcaseImagesComponent implements OnInit {
   }
 
   //-----------------------------------------------------------------------------------------------------------onArrowClick---------------------------------------------------------------------------
-  onArrowClick(direction: number): void{
+  onArrowClick(direction: number): void {
     //Stop the timer
     window.clearInterval(this.interval);
 
@@ -83,14 +83,14 @@ export class ShowcaseImagesComponent implements OnInit {
   }
 
   //-----------------------------------------------------------------------------------------------------------setHeight-------------------------------------------------------------------------------
-  setHeight(): void{
+  setHeight(): void {
     let navBarHeight = 80, maxWindowWidth = 1920;
 
     //compute the height
     if (window.innerWidth > 1800 && window.innerHeight <= 1080) {
-        this.height = (window.innerHeight - navBarHeight) / maxWindowWidth * 100;
+      this.height = (window.innerHeight - navBarHeight) / maxWindowWidth * 100;
     } else {
-        this.height = 56.25;
+      this.height = 56.25;
     }
   }
 
@@ -101,17 +101,17 @@ export class ShowcaseImagesComponent implements OnInit {
   }
 
   //-----------------------------------------------------------------------------------------------------------onImageLoad---------------------------------------------------------------------------
-  onImageLoad(): void{
+  onImageLoad(): void {
     //When the fisrt image has loaded, display the image and hide the loading mask
-    if(this.showcaseImages.length == 1){
+    if (this.showcaseImages.length == 1) {
       this.showcaseImages[0].fadeState = 'visible';
       this.isLoaded = true;
     }
 
     //Load the rest of the images
-    if(this.images.length > this.showcaseImages.length){
+    if (this.images.length > this.showcaseImages.length) {
       this.showcaseImages.push(this.images[this.showcaseImages.length]);
-    }else{
+    } else {
       //All images are loaded so start the timer for the slide and display the arrows
       this.startTimer(1);
       this.arrowsDisplay = 'block';

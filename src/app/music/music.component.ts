@@ -18,7 +18,7 @@ export class MusicComponent implements OnInit {
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
     //Get the songs
-    this.dataService.getData().subscribe(response => this.songs = response.songs);
+    this.dataService.get('api/Songs').subscribe((response: any) => this.songs = response);
   }
 
   //---------------------------------------------------------------------------------------------------------getSortClass---------------------------------------------------------------------------------

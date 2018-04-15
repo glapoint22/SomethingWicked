@@ -14,6 +14,6 @@ export class TourComponent implements OnInit {
 
   ngOnInit() {
     //Get the shows
-    this.dataService.getData().subscribe(response => this.shows = response.shows);
+    this.dataService.get('api/Schedule').subscribe((response: any) => this.shows = response);
   }
 }

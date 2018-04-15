@@ -16,8 +16,8 @@ export class MembersComponent implements OnInit {
   //-----------------------------------------------------------------------------------------------------------ngOnInit---------------------------------------------------------------------------------
   ngOnInit() {
     //Get the members
-    this.dataService.getData().subscribe(response => {
-      this.members = response.members;
+    this.dataService.get('api/Members').subscribe((response: any) => {
+      this.members = response;
     });
   }
 
